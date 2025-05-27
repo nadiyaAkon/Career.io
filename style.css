@@ -48,12 +48,23 @@ button {
   padding: 17px 24px;
   border: none;
 }
-
+button:hover{
+  background: black;
+  transition: 0.2s all linear;
+  color: white;
+  cursor: grab;
+}
 /* main section  */
 
 /* hope section  */
-
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #hope {
+  width: 1260px;
   height: 592px;
   display: flex;
   flex-direction: column;
@@ -80,6 +91,7 @@ button {
   }
 }
 #whyDev {
+  width: 1260px;
   height: 656px;
   display: flex;
   flex-direction: column;
@@ -140,52 +152,73 @@ button {
       }
     }
     .right {
-    }
-  }
-}
-#inspiration {
-  padding: 100px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .first {
-    height: 124px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    h1 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 48px;
-      letter-spacing: 0%;
-    }
-    p {
-      max-width: 852px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 26px;
-      letter-spacing: 0%;
-      opacity: 0.7;
-    }
-  }
-  .second {
-    margin-top: 48px;
-    padding: 20px;
-    .box {
-      box-sizing: border-box;
-      border: 1px solid rgba(13, 19, 33, 0.2);
-      border-radius: 16px;
-      padding: 34px;
-      iframe {
-        border-radius: 16px;
+      img{
+        width: 100%;
       }
     }
   }
 }
+#inspiration {
+  width: 100%;
+  max-width: 1260px;
+  padding: 100px 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .first {
+    text-align: center;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 48px;
+    }
+
+    p {
+      max-width: 852px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+      opacity: 0.7;
+    }
+  }
+
+  .second {
+    margin-top: 48px;
+    width: 100%;
+
+    .box {
+      max-width: 1036px;
+      width: 100%;
+      margin: auto;
+      border: 2px solid rgba(13, 19, 33, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 20px;
+      .iframe-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        height: 0;
+
+        iframe {
+          position: absolute;
+          border-radius: 16px;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
 #target {
+  width: 1260px;
   .first {
     height: 124px;
     display: flex;
@@ -262,9 +295,126 @@ footer {
     font-weight: 600;
     line-height: 23px;
     letter-spacing: 0%;
+    color: rgb(73, 73, 73);
+    span{
+      color: rgb(0, 0, 0);
+    }
   }
   .last {
     display: flex;
-    gap:24px;
+    gap: 24px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+  header {
+    padding: 24px 20px;
+  }
+  #hope,
+  #whyDev,
+  #inspiration,
+  #target {
+    width: 100%;
+    padding: 20px;
+  }
+  #inspiration {
+    margin-top: 240px;
+  }
+  #whyDev .card {
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+  #whyWeb .card .right img {
+    width: 80%;
+  }
+  #target .second {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    padding: 20px 40px;
+  }
+}
+
+/* Mobile (≤767px) */
+@media (max-width: 767px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  #hope h1,
+  #whyDev .head h1,
+  #inspiration .first h1,
+  #target .first h1 {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  #inspiration {
+    margin-top: 200px;
+  }
+  #hope p,
+  #whyDev .head p,
+  #inspiration .first p,
+  #target .first p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  #whyDev .card {
+    flex-direction: column-reverse;
+    padding: 24px;
+  }
+  #whyWeb .card .right img {
+    width: 80%;
+  }
+  #target .second {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  #target .second .card {
+    width: 100%;
+  }
+
+  footer {
+    padding: 16px 20px;
+    gap: 16px;
+  }
+
+  .last {
+    flex-direction: column;
+    gap: 12px;
+  }
+  #inspiration {
+    padding: 60px 10px;
+
+    .first {
+      h1 {
+        font-size: 24px;
+        line-height: 36px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
+        padding: 0 10px;
+      }
+    }
+
+    .second {
+      .box {
+        border-width: 1px;
+      }
+    }
   }
 }
